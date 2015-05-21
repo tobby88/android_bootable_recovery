@@ -83,7 +83,7 @@ int main(int argc, char **argv) {
 	}
 
 #ifdef RECOVERY_SDCARD_ON_DATA
-	datamedia = true;
+	datamedia = false;
 #endif
 
 	char crash_prop_val[PROPERTY_VALUE_MAX];
