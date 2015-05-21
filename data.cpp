@@ -655,7 +655,7 @@ void DataManager::SetDefaultValues()
 	printf("RECOVERY_SDCARD_ON_DATA := true\n");
 	mConstValues.insert(make_pair(TW_HAS_DATA_MEDIA, "1"));
 	mConstValues.insert(make_pair("tw_has_internal", "1"));
-	datamedia = true;
+	datamedia = false;
 #else
 	mValues.insert(make_pair(TW_HAS_DATA_MEDIA, make_pair("0", 0)));
 	mValues.insert(make_pair("tw_has_internal", make_pair("0", 0)));
