@@ -852,6 +852,8 @@ void DataManager::SetDefaultValues()
 	mConstValues.insert(make_pair("tw_has_mtp", "0"));
 	mConstValues.insert(make_pair("tw_mtp_enabled", "0"));
 #endif
+	mValues.insert(make_pair("tw_mount_system_ro", make_pair("1", 1)));
+	mValues.insert(make_pair("tw_never_show_system_ro_page", make_pair("0", 1)));
 
 	pthread_mutex_unlock(&m_valuesLock);
 }
@@ -889,6 +891,10 @@ int DataManager::GetMagicValue(const string varName, string& value)
 	}
 	else if (varName == "tw_cpu_temp")
 	{
+	   int tw_no_cpu_temp;
+	   GetValue("tw_no_cpu_temp", tw_no_cpu_temp);
+	   if (tw_no_cpu_temp == 1) return -1;
+
 	   string cpu_temp_file;
 	   static unsigned long convert_temp = 0;
 	   static time_t cpuSecCheck = 0;
